@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>wiring</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../res/res.qrc">
+    <normaloff>:/res/app_icon.ico</normaloff>:/res/app_icon.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTextEdit" name="program_edit">
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="LabelClickable" name="about">
+        <property name="text">
+         <string>当前版本号：V0.1</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="build">
+    <property name="title">
+     <string>新建</string>
+    </property>
+    <addaction name="program_menu"/>
+    <addaction name="lib_menu"/>
+    <addaction name="jiami_menu"/>
+   </widget>
+   <widget class="QMenu" name="insert">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>插入</string>
+    </property>
+    <widget class="QMenu" name="menu_2">
+     <property name="title">
+      <string>系统指令</string>
+     </property>
+     <addaction name="speed_menu"/>
+     <addaction name="xyz_menu"/>
+    </widget>
+    <addaction name="val_menu"/>
+    <addaction name="if_menu"/>
+    <addaction name="separator"/>
+    <addaction name="menu_2"/>
+    <addaction name="move_menu_2"/>
+    <addaction name="delay_menu"/>
+    <addaction name="call_menu"/>
+    <addaction name="dindout_menu"/>
+   </widget>
+   <addaction name="build"/>
+   <addaction name="insert"/>
+  </widget>
+  <action name="program_menu">
+   <property name="text">
+    <string>新建程序</string>
+   </property>
+  </action>
+  <action name="lib_menu">
+   <property name="text">
+    <string>新建子程序</string>
+   </property>
+  </action>
+  <action name="jiami_menu">
+   <property name="text">
+    <string>新建加密程序</string>
+   </property>
+  </action>
+  <action name="val_menu">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>添加变量</string>
+   </property>
+  </action>
+  <action name="if_menu">
+   <property name="text">
+    <string>if语句</string>
+   </property>
+  </action>
+  <action name="move_menu">
+   <property name="text">
+    <string>行进操做</string>
+   </property>
+  </action>
+  <action name="avoid_menu">
+   <property name="text">
+    <string>避障操作</string>
+   </property>
+  </action>
+  <action name="speed_menu">
+   <property name="text">
+    <string>速度调节</string>
+   </property>
+  </action>
+  <action name="xyz_menu">
+   <property name="text">
+    <string>坐标系切换</string>
+   </property>
+  </action>
+  <action name="din_menu">
+   <property name="text">
+    <string>接收</string>
+   </property>
+  </action>
+  <action name="dout_menu">
+   <property name="text">
+    <string>发送</string>
+   </property>
+  </action>
+  <action name="delay_menu">
+   <property name="text">
+    <string>延时指令</string>
+   </property>
+  </action>
+  <action name="call_menu">
+   <property name="text">
+    <string>引用指令</string>
+   </property>
+  </action>
+  <action name="dindout_menu">
+   <property name="text">
+    <string>信号指令</string>
+   </property>
+  </action>
+  <action name="move_menu_2">
+   <property name="text">
+    <string>行进指令</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LabelClickable</class>
+   <extends>QLabel</extends>
+   <header>diy.label_clickable</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../res/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

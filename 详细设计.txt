@@ -1,0 +1,93 @@
+所有填写的数据全是大写
+一、1、（1）新建程序文件
+		文件头：
+		' (ADD YOUR COMMON/COMMON SHARED VARIABLE HERE )
+		PROGRAM
+		' (ADD YOUR DIM VARIABLE HERE )
+		WITH ROBOT
+		ATTACH ROBOT
+		ATTACH EXT_AXES
+
+		文件尾：
+		DETACH ROBOT
+		DETACH EXT_AXES
+		END WITH
+		END PROGRAM
+
+一、1、（2）新建子程序文件
+		文件头：
+		PUBLIC SUB TESTMOD
+		' (WRITE YOUR CODE HERE)
+
+		文件尾：
+		END SUB
+
+一、1、（2）新建加密程序文件
+		PROGRAM
+		?ENCRYPTFILE ("ZONG.PRG")
+		?ENCRYPTFILE ("ZONG.PRG")
+		?ENCRYPTFILE ("ZONG.PRG")
+		?ENCRYPTFILE ("ZONG.PRG")
+		END PROGRAM
+
+一、2、可以在工具栏打开页面，新蹦出来界面进行编辑文件编辑
+
+
+二、1、使用者可以利用键盘进行编辑
+
+二、2、插入指令
+	在界面中的text中，添加可以插入的按钮，可以插入一下代码
+	方法名与在text显示用的代码不同，具体才考下面叙述
+	（1）添加变量：
+		DIM  变量名 AS LONG
+		程序里，这句话插入在PROGRAM下面 
+		子程序里，这句话放在最前面
+	（2）if语句：
+		代码光标位置添加以下代码：
+		IF condition THEN
+			'code
+		ELSE
+			'code
+		END IF
+	（1）行进指令：
+		行进操做需要3个参数（有符号数）
+		相对：def move(x=int,y=int,z=int)      	→	MOVES ROBOT  #{x,y,z,0,0,0} ABS=0
+		绝对：def move_to(x=int,y=int,z=int)	→	MOVES ROBOT  #{x,y,z,0,0,0} ABS=1
+
+        # 避障操作删除
+		避障操作一个参数（前后左右）
+		方法名称：def avoid(direction=[f,b,l,r])	→
+			向前避障f：
+				def move(+-20,10,0) 
+				def move(+-20,-10,0) 
+			向后避障b：
+				def move(+-20,-10,0) 
+				def move(+-20,10,0) 
+			向左避障l：
+				def move(-10,+-20,0) 
+				def move(10,+-20,0) 
+			向右避障r：
+				def move(10,+-20,0) 
+				def move(-10,+-20,0) 
+
+	（2）系统指令：
+		速度调节：sys_speed(present = int) 	→	SYS.VORD=present
+
+		坐标系切换：
+			基座标：sys_base(int)	→	CALL SETBASENUM(int)
+			工具坐标：sys_tool(int)	→	CALL SETTOOLNUM(int)
+	（3）信号指令：接收/发送，接收端口号
+		signal(direction=[0,1],port=int,status=[OFF,ON]) 		→	出：D_OUT[port] = status
+									入：CALL WAIT(D_IN[port],status)
+	（4）延时指令：
+		delay(time=int)					→	DELAY ROBOT time（1000）
+	（5）引用指令：
+		call_sub(filename)只能引用子程序.LIB			→	程序：CALL filename
+									子程序：开头：import filename     具体位置：CALL filename
+
+	
+		
+
+		
+
+
