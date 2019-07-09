@@ -86,6 +86,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def on_open_menu_triggered(self):
         print('open_menu')
         filename, filecontent = open_file(self)
+        print('文件名称：%s' % filename)
+        print('文件内容：%s' % filecontent)
         if filename:
             self.current_file_name = filename
             self.program_edit.setText(filecontent)
@@ -109,7 +111,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     # 文档内容改变
     @pyqtSlot()
     def on_program_edit_textChanged(self):
-        print('内容改变')
+        # print('内容改变')
         if self.current_file_name:
             with open(self.current_file_name, 'w+') as f:
                 f.write(self.program_edit.toPlainText())

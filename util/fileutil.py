@@ -74,10 +74,13 @@ def open_file(win):
     if filename:
         print('打开文件名称：%s' % filename)
         file_content = ''
-        with open(filename, 'r') as f:
-            file_content = f.read()
+        try:
+            with open(filename, 'r',encoding='utf-8') as f:
+                file_content = f.read()
 
-        return filename, file_content
+            return filename, file_content
+        except Exception as e:
+            print('错误：%s' % e)
     else:
         return '', ''
 
